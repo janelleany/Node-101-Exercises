@@ -1,21 +1,25 @@
+// exercise: accessing simple algorithm scripts in other files and testing
+
 var assert = require("assert");
-// var printNumbers = require("./printNumbers");
-// var printSquare = require("./printSquare");
-// var printBox = require("./printBox");
+var printNumbers = require("./printNumbers");
+var printSquare = require("./printSquare");
+var printBox = require("./printBox");
 
 
-// var testArray = [1, 2, 3];
-// var squareTestString = "**\n**\n";
-// var fullRowTestString = "******";
-// var hollowRowTestString = "*    *";
+var testArray = [1, 2, 3];
+var squareTestString = "**\n**\n";
+var fullRowTestString = "******";
+var hollowRowTestString = "*    *";
 
-// assert.deepEqual(printNumbers.doPrintNumbers(1, 3), testArray, "it's not working");
-// assert.deepEqual(printSquare.doPrintSquare(2), squareTestString, "this isn't working");
-// assert.deepEqual(printBox.doPrintBox(6, 4), fullRowTestString, "this isn't working");
+assert.deepEqual(printNumbers.doPrintNumbers(1, 3), testArray, "it's not working");
+assert.deepEqual(printSquare.doPrintSquare(2), squareTestString, "this isn't working");
+assert.deepEqual(printBox.doPrintBox(6, 4), fullRowTestString, "this isn't working");
 
+// exercise: reading files
+
+var rl = require("readline");
 
 var fs = require("fs");
-var rl = require("readline");
 
 var prefix = "Heeyyyyy> ";
 
@@ -27,10 +31,6 @@ var i = rl.createInterface({
 
 i.prompt();
 
-// i.on("line", function(input) {
-//     console.log("Received " + input);
-//     i.close();
-// });
 
 var fileOutput = function(error, text) {
     if (error) { console.log(error.message) }
@@ -42,12 +42,12 @@ var fileOutput = function(error, text) {
 }
 
 
-// i.question("Filename: ", function(answer) {
-//     fs.readFile(answer, fileOutput);
-//     i.close();
-// });
+i.question("Filename: ", function(answer) {
+    fs.readFile(answer, fileOutput);
+    i.close();
+});
 
-
+// exercise: dns lookup
 
 var dns = require("dns");
 
