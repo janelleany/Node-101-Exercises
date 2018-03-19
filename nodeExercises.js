@@ -21,6 +21,8 @@ var rl = require("readline");
 
 var fs = require("fs");
 
+var request = require("request");
+
 var prefix = "Heeyyyyy> ";
 
 var i = rl.createInterface({
@@ -95,5 +97,13 @@ i.prompt();
 
 //exercise: save a web page
 
+var saveAsHTML = function(answer) {
+    if (error) {console.log(error.message)} else {
+        request.get(answer, function(error, response, body) {
+            fs.writeFile()
+        })
+    }
+}
 
+i.question(ans
 
